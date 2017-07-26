@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建数据源1，连接数据库db1 -->
+    <bean id="dataSource1" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db1.driver}"/>
+        <property name="url" value="${db1.url}"/>
+        <property name="username" value="${db1.username}"/>
+        <property name="password" value="${db1.password}"/>
+    </bean>
+    <!--创建数据源2，连接数据库db2 -->
+    <bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db2.driver}"/>
+        <property name="url" value="${db2.url}"/>
+        <property name="username" value="${db2.username}"/>
+        <property name="password" value="${db2.password}"/>
+    </bean>
+    <!--创建数据源3，连接数据库db3 -->
+    <bean id="dataSource3" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${db3.driver}"/>
+        <property name="url" value="${db3.url}"/>
+        <property name="username" value="${db3.username}"/>
+        <property name="password" value="${db3.password}"/>
+    </bean>
+
+
+</beans>
