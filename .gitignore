@@ -17,8 +17,21 @@ Thumbs.db
 *.iml
 *.ipr
 *.iws
-.idea
+
+/.project
+
+
+/*/target
+*.log
+/**/*logs*
+/**/.project
+/**/.idea
+/.settings
+/**/.settings
+.classpath
+/**/disconf
+
 
 #eclipse相关
-/.project
+
 /.settings
