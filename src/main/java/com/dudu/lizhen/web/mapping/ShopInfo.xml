@@ -1,0 +1,48 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dudu.soa.weixindubbo.shopinfo.mapper.ShopInfoDao">
+
+    <resultMap type="com.dudu.soa.weixindubbo.shopinfo.module.ShopInfo" id="shopInfo">
+
+        <result property="id" column="ID"/>
+        <result property="shopName" column="ShopName"/>
+        <result property="lat" column="Lat"/>
+        <result property="lon" column="Lat"/>
+        <result property="state" column="State"/>
+        <result property="address" column="Address"/>
+        <result property="city" column="City"/>
+        <result property="tel" column="Tel"/>
+        <result property="mobile" column="Mobile"/>
+        <result property="serviceContent" column="ServiceContent"/>
+        <result property="hardware" column="Hardware"/>
+        <result property="environment" column="Environment"/>
+        <result property="artificer" column="Artificer"/>
+        <result property="service" column="Service"/>
+        <result property="introduction" column="Introduction"/>
+        <result property="imgListView" column="ImgListView"/>
+        <result property="imgBig" column="ImgBig"/>
+        <result property="imgIntroduct" column="ImgIntroduct"/>
+        <result property="shopStrength" column="ShopStrength"/>
+        <result property="renqi" column="renqi"/>
+        <result property="pingjia" column="pingjia"/>
+        <result property="wXtoken" column="WXtoken"/>
+        <result property="wXAppId" column="WXAppId"/>
+        <result property="wXAppSecret" column="WXAppSecret"/>
+        <result property="welcomeImg" column="WelcomeImg"/>
+        <result property="welcomeTxt" column="WelcomeTxt"/>
+        <result property="url" column="url"/>
+    </resultMap>
+
+    <!--查看所有的店铺信息-->
+    <select id="getShopInfo" parameterType="String" resultMap="shopInfo">
+       SELECT
+	*
+FROM
+	ShopInfo
+WHERE
+	ID = #{id}
+
+    </select>
+
+
+</mapper>
