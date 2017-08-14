@@ -1,7 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" pageEncoding="utf-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -19,7 +19,10 @@
 </head>
 <body>
 <form action="<%=path %>/upload/UpLoad" method="post" enctype="multipart/form-data">
-    请选择上传的图片或文件:<input id ="file1" type="file" name="fileName"/><input type="submit" value="上传"/>
+    请选择上传的图片或文件:<input id="file1" type="file" name="fileName"/><input type="submit" value="上传"/>
 </form>
 </body>
 </html>
+
+
+
