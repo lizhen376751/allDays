@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * json格式的工具类
@@ -23,10 +25,15 @@ public class JSONUtil {
          * TODO 后面的这句话从实体类里面获取相应的参数
          */
 //        List<JSONUtil> evaluateCommodities1 = evaluateReturn.getEvaluateCommodities();
+
+        //TODO 将实体类转换成json类型 以下的方法可行
+//        JSONObject jsonObject = (JSONObject) JSONObject.toJSON(messageEntry); //将实体类传入
+//        MessageEntry evaluateReturn = JSONObject.toJavaObject(jsonObject, MessageEntry.class);
+//        System.out.println("========="+evaluateReturn);
     }
 
     /**
-     * list转换成json和json转换成list
+     * map转json,list转换成json,json转换成list
      * @throws Exception
      */
     public void addEvaluateMain() {
@@ -34,6 +41,16 @@ public class JSONUtil {
         list.add(0, "sssss");
         list.add(0, "bbbbbb");
         System.out.println("=====" + list.toString());
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("1", list.toString());
+        //map转换成json
+        Object o = JSONObject.toJSON(map);
+        System.out.println("o=====" + o);
+        JSONObject jsonObject = JSONObject.parseObject(o.toString());
+        String string1 = jsonObject.getString("1");
+        //上面这两句话相当于这句话
+        String string = JSONObject.parseObject(o.toString()).getString("1");
+        System.out.println("string=====" + string);
 
         //list转换为json
         String str = JSON.toJSON(list).toString();

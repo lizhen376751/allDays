@@ -62,6 +62,8 @@ public class FileUploadServlet {
             tempPath.mkdir();
         }
 
+
+
         /********************************使用 FileUpload 组件解析表单********************/
 
         //DiskFileItemFactory：创建 FileItem 对象的工厂，
@@ -118,6 +120,10 @@ public class FileUploadServlet {
                     //item.write(new File(uploadPath, itemNo + ".gif"));
                     //将文件保存到目录下，不修改文件名
                     item.write(new File(uploadPath, fileName));
+
+
+                    // 路径为文件且不为空则进行删除
+
                 }
             }
         } catch (Exception e) {
@@ -128,5 +134,21 @@ public class FileUploadServlet {
 
     }
 
+    /**
+     * 删除文件
+     */
+    public void delectFile() {
+        String filePath = "E:\\GitWorkspaces\\DuduWeixin\\target\\DuduWeiXin-1.0-SNAPSHOT\\Views\\images\\fengjing.jpg";
+        File file = new File(filePath);
+        if (!file.exists() || !file.isFile()) {
+            System.out.println("没有图片");
+        }
+        // 路径为文件且不为空则进行删除
+        if (file.isFile() && file.exists()) {
+            file.delete();
+            System.out.println("删除图片成功");
+        }
 
+
+    }
 }
