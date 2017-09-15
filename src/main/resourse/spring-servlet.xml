@@ -18,19 +18,9 @@
         <property name="suffix" value=".jsp"/>    <!-- 后缀 -->
     </bean>
     <!-- 访问静态文件（jpg,js,css）的方法 -->
-    <mvc:resources location="/files/" mapping="/files/**"/>
-    <mvc:resources location="/scripts/" mapping="/scripts/**"/>
-    <mvc:resources location="/styles/" mapping="/styles/**"/>
+    <!--<mvc:resources location="/files/" mapping="/files/**"/>-->
+    <!--<mvc:resources location="/scripts/" mapping="/scripts/**"/>-->
+    <!--<mvc:resources location="/styles/" mapping="/styles/**"/>-->
     <mvc:resources location="/Views/" mapping="/Views/**"/>
-
-    <bean id="dataSourceAspect" class="com.dudu.lizhen.test.DataSourceAspect" />
-         <aop:config>
-             <aop:aspect ref="dataSourceAspect">
-                 <!-- 拦截所有service方法 -->
-                 <aop:pointcut id="dataSourcePointcut" expression="execution(* com.dudu.*.mapper.*.*(..))"/>
-                 <aop:before pointcut-ref="dataSourcePointcut" method="intercept" />
-             </aop:aspect>
-         </aop:config>
-     </bean>
 
 </beans>

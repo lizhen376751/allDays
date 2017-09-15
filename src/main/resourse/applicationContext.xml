@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns="http://www.springframework.org/schema/beans"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop">
 
     <!-- 数据源相同的内容 -->
     <bean id="parentDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-        <property name="username" value="shop_du" />
-        <property name="password" value="devDudu118fply8BeauCZoeJ" />
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="username" value="shop_du"/>
+        <property name="password" value="devDudu118fply8BeauCZoeJ"/>
     </bean>
 
     <!-- start以下配置各个数据源的特性 -->
     <bean parent="parentDataSource" id="testDataSource">
-        <property name="url" value="jdbc:sqlserver://dev.duduchewang.cn:1433;DatabaseName=baidumap;SelectMethod=cursor" />
+        <property name="url"
+                  value="jdbc:sqlserver://dev.duduchewang.cn:1433;DatabaseName=baidumap;SelectMethod=cursor"/>
     </bean>
 
     <bean parent="parentDataSource" id="UserDataSource">
-        <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=User" />
+        <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=User"/>
     </bean>
     <!-- end 配置各个数据源的特性 -->
 
-    <bean class="com.dudu.lizhen.test.DynamicDataSource" id="dataSource">
-        <property name="targetDataSources">
-            <map key-type="java.lang.String">
-                <entry value-ref="testDataSource" key="test"></entry>
-                <entry value-ref="UserDataSource" key="User"></entry>
-            </map>
-        </property>
-        <!--默认数据源-->
-        <property name="defaultTargetDataSource" ref="testDataSource" ></property>
-    </bean>
+
+
+
 
 </beans>
