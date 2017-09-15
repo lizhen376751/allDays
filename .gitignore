@@ -18,7 +18,8 @@ Thumbs.db
 *.iml
 *.ipr
 *.iws
-.idea
+.idea/.name
+.idea/*.xml
 
 
 #eclipse相关
