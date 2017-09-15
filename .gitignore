@@ -20,6 +20,7 @@ Thumbs.db
 *.iws
 .idea/.name
 .idea/*.xml
+.idea/
 
 
 #eclipse相关
