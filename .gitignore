@@ -1,3 +1,4 @@
+# Created by .ignore support plugin (hsz.mobi)
 #GIT代码提交忽略文件配置
 /target
 *.classpath
@@ -18,20 +19,7 @@ Thumbs.db
 *.ipr
 *.iws
 
-/.project
-
-
-/*/target
-*.log
-/**/*logs*
-/**/.project
-/**/.idea
-/.settings
-/**/.settings
-.classpath
-/**/disconf
-
-
 #eclipse相关
-
+/.project
 /.settings
+
