@@ -28,3 +28,6 @@ Thumbs.db
 /.settings
 
 /.idea/compiler.xml
+.idea
+allDays.iml
+.project
