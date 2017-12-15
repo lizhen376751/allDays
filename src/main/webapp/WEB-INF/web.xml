@@ -21,7 +21,7 @@
         <!-- 可以自定义servlet.xml配置文件的位置和名称，默认为WEB-INF目录下，名称为[<servlet-name>]-servlet.xml，如spring-servlet.xml-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:../resourse/spring-servlet.xml</param-value>
+            <param-value>classpath*:../resourse/spring-servlet.xml</param-value>
         </init-param>
 
         <!-- load-on-startup元素标记容器是否在启动的时候就加载这个servlet(实例化并调用其init()方法) -->
@@ -39,9 +39,9 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!-- 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 -->
+    <!--这个是spring的ioc容器 指定Spring Bean的配置文件所在目录。默认配置在WEB-INF目录下 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>WEB-INF/applicationContext.xml</param-value>
     </context-param>
 </web-app>
