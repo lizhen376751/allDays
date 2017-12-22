@@ -1,4 +1,4 @@
-package com.dudu.lizhen.thiread;
+package com.dudu.lizhen.thread;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,7 +41,7 @@ public class TestThread {
         testThread1.sss();
         //在3秒后执行MyTask类中的run方法
         t.schedule(new MyTask(testThread1), 3000);
-        ThreadPoolExecutorTest.threadPool();
+//        ThreadPoolExecutorTest.threadPool();
     }
 
 

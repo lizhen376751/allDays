@@ -17,6 +17,8 @@ public class Test {
         girl.addWatcher(watcher3);
 
         girl.notifyWatchers("开心");
+
+
     }
 
 }

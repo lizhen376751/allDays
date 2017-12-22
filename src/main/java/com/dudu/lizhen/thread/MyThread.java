@@ -1,4 +1,4 @@
-package com.dudu.lizhen.thiread;
+package com.dudu.lizhen.thread;
 
 /**
  * Created by Administrator on 2017/12/15.
