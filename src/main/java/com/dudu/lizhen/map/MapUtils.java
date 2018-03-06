@@ -11,7 +11,9 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Map;
 
 /**
@@ -32,6 +34,13 @@ public final class MapUtils {
      * @param args sh
      */
     public static void main(String[] args) {
+        HashMap map =new HashMap();
+        map.put("测试","使map变成有序Map");
+        Map map1 = Collections.synchronizedMap(map);
+
+        Hashtable hashtable = new Hashtable();
+        hashtable.put("非空","非空");
+        hashtable.get("非空");
 
 //        AccessToken accessToken = new AccessToken();
 //        accessToken.setExpiresIn(545454545);
