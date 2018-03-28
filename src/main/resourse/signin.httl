@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>${title}</title>
+
+    <script>
+        !function(a, b, c) {
+            function d(a) {
+                var d = b.createElement("iframe"),
+                    e = a.api_url + "?appid=" + a.appid  + "&return_url=" + encodeURIComponent(a.return_url) + "&rand_token=" + a.rand_token + "&embed_flag=1";
+                d.src = e, d.frameBorder = "0", d.allowTransparency = "true", d.scrolling = "no", d.width = a.width, d.height = a.height;
+                var f = b.getElementById(a.id);
+                f.innerHTML = "", f.appendChild(d)
+            }
+            a.UasLogin = d
+        }(window, document);
+
+        if(self!=top) top.location=self.location;
+
+
+        function is_weixin() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if(is_weixin()){
+            window.location.href = "$!{url}";
+        }
+        function isBrowser(){
+            var Sys={};
+
+            var ua=navigator.userAgent.toLowerCase();
+            var s;
+            (s=ua.match(/msie ([\d.]+)/))?Sys.ie=s[1]:
+                (s=ua.match(/firefox\/([\d.]+)/))?Sys.firefox=s[1]:
+                    (s=ua.match(/chrome\/([\d.]+)/))?Sys.chrome=s[1]:
+                        (s=ua.match(/opera.([\d.]+)/))?Sys.opera=s[1]:
+                            (s=ua.match(/(trident)\/([\d.]+)/))?Sys.ie11=s[1]:
+                                (s=ua.match(/version\/([\d.]+).*safari/))?Sys.safari=s[1]:0;
+            var jKey = "";
+            for(var key in Sys){
+                jKey = key;
+            }
+            if(Sys.firefox || Sys.chrome){
+
+            }else{
+                var brows = jKey+Sys[jKey];
+                if(Sys.ie){
+                    if(Sys.ie!='9.0' && Sys.ie!='8.0' && Sys.ie!='10.0' && Sys.ie!='11.0'){
+                        $.messager.alert("提示","<font style='font:13pt face=宋体'>您当前浏览器版本为："+brows+"<br\/>为了不影响您正常使用本财务平台的功能，建议将浏览器升级至IE8或以上版本，或者使用其他浏览器，推荐使用如<a title='下载谷歌浏览器' href='http://www.google.cn/intl/zh-CN/chrome/browser/' target='_blank'>chrome</a>、<a title='下载360浏览器' href='http://chrome.360.cn/' target='_blank'>360</a>、<a title='下载搜狗浏览器' href='http://ie.sogou.com/' target='_blank'>搜狗</a>、<a title='下载猎豹浏览器' href='http://www.liebao.cn/' target='_blank'>猎豹</a>、<a title='下载火狐浏览器' href='http://www.firefox.com.cn/download/' target='_blank'>火狐</a>、<a title='下载Safari浏览器' href='http://support.apple.com/kb/DL1531?viewlocale=zh_CN' target='_blank'>Safari</a>等浏览器。</font>","info");
+                    }
+                }
+            }
+        }
+        $(function(){
+            isBrowser();
+        });
+    </script>
+</head>
+<body >
+<div>
+    <div style="width: 100%; height: 45%; left: 0; top: 0; z-index: -1;"></div>
+
+
+    <div style="width: 470px; height: 485px; margin: 0 auto;margin-top: 160px;">
+        <div style="width: 200px;heigth: 200px;padding-bottom: 20px; margin: 60px auto;">
+            <div style="color: green;text-align: center;">
+                扫码登录，安全快捷
+            </div>
+            <div id="qr" style="text-align: center;"></div>
+        </div>
+    </div>
+    <script>
+
+
+        UasLogin({
+            id: "qr",
+            api_url: "${api_url}",
+            appid: "${appid}",
+            return_url: "${return_url}",
+            rand_token: "${rand_token}",
+            width: "180px",
+            height: "200px"
+        });
+
+
+
+    </script>
+    <!--<div>-->
+        <!--<div>-->
+            <!--　　　建议使用<font color="green">Chrome</font>或者<font color="green">IE 8.0 以上版本</font>浏览器-->
+            <!--　　　				<br/>Copyright&nbsp;&copy;&nbsp;http://fsp.ustb.edu.cn&nbsp;&nbsp;北京科技大学财务处-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+</body>
+</html>
