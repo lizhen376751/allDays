@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 
 /**
+ * 也叫做雪花算法，及时同一时空的全球来说，也能保证唯一性，分布式亦是如此，因为中间加了一个机器码
  * snowflake算法是一款本地生成的（ID生成过程不依赖任何中间件，无网络通信），
  * 保证ID全局唯一，并且ID总体有序递增，性能每秒生成300w＋。
  *
@@ -16,7 +17,7 @@ import java.net.NetworkInterface;
  * 这样的好处是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），
  * 并且效率较高，经测试，snowflake每秒能够产生26万ID左右，完全满足需要。
  * <p>
- * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加))
+ * 64位ID (42(毫秒)+5(机器ID)+5(业务编码)+12(重复累加)) ====最会转换成18位的long类型的数字
  *
  * @author Polim
  */
