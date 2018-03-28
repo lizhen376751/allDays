@@ -5,36 +5,30 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by Administrator on 2018/2/26.
+ * 读取配置文件
+ * 并且解决中文乱码问题
+ * Created by lizhen on 2018/2/26.
  */
 public class PropertiesTest {
     public static void main(String[] args) {
-        PropertiesTest propertiesTest = new PropertiesTest();
-        propertiesTest.ss();
-        InputStream insss = PropertiesTest.class.getResourceAsStream("/zfbinfo.properties");
-        Properties pss = new Properties();
-        try {
-            pss.load(insss);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(pss.getProperty("appid"));
+        getValue("appid");
     }
 
-    public void ss() {
+    public static String getValue(String name) {
         String proFileName = "/zfbinfo.properties";//正确的
         Properties pro;
-
-
+        String value = "";
+        InputStream in = null;
         try {
             pro = new Properties();
-            InputStream in = ClassLoader.class.getResourceAsStream(proFileName);
+            in = ClassLoader.class.getResourceAsStream(proFileName);
             pro.load(in);
-            String value = pro.getProperty("appid");
+            value = new String(pro.getProperty(name).getBytes("ISO-8859-1"), "UTF-8");
             System.out.println(value);
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return value;
     }
 }
