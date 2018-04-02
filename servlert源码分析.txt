@@ -1,0 +1,16 @@
+
+1.servlert只能初始化一次，是一个单例模式。是为了提高效率。
+2.servlert执行流程
+读取web.xml,利用反射初始化类。
+我们通过源码可以看到，我们自己写的类继承了HttpServlet,当请求过来的时候，首先会走顶级父类servlet的service方法，但是HttpServlet继承之后重写了service方法，
+service方法只是对类型做了一个判断，最后真正操作的是doget（）和dopost，我们自己写的类继承了httpservlet，并且重写了doget（）和dopsot方法，所以实际走的是我们重写的方法，
+父类只是起到了一个类型判断的作用。
+
+3.servlet是线程安全的吗？
+不是，因为servlet只能初始化一次，是一个单例所以会出现线程安全问题。
+我们怎么证明呢？我们自己写一个无参构造函数，如果只进行了一次初始化，那就是证明是单例的。
+
+4.如何避免servlet出现线程安全问题？
+1.加锁。
+2.尽量不要在servlert创建全局变量。
+3.在spring mvc中我们如果设置了servlet他默认是property，也就是每次请求都会创建一个servlet

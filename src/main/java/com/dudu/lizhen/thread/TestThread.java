@@ -34,13 +34,16 @@ public class TestThread {
     }
 
     public static void main(String[] arg) {
-        TestThread testThread1 = new TestThread();
-        //创建定时器对象
-        Timer t = new Timer();
-        testThread1.sss();
-        testThread1.sss();
-        //在3秒后执行MyTask类中的run方法
-        t.schedule(new MyTask(testThread1), 3000);
+        ThreadPoolExecutorTest.threadPool();
+        ExecutorService executorService = Executors.newCachedThreadPool();
+
+//        TestThread testThread1 = new TestThread();
+//        //创建定时器对象
+//        Timer t = new Timer();
+//        testThread1.sss();
+//        testThread1.sss();
+//        //在3秒后执行MyTask类中的run方法
+//        t.schedule(new MyTask(testThread1), 3000);
 //        ThreadPoolExecutorTest.threadPool();
     }
 
@@ -75,6 +78,7 @@ class ThreadPoolExecutorTest {
                 public void run() {
                     try {
                         System.out.println(index);
+                        System.out.println(Thread.currentThread().getName());
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
