@@ -15,7 +15,7 @@
         <property name="age" value="18"/>
     </bean>
     <!-- 把person和student纳入spring容器中-->
-    <bean id="UserTest" class="com.dudu.lizhen.createIOC.UserTest">
+    <bean id="UserTest" class="com.dudu.lizhen.createIOC.UserTest" scope="prototype">
         <!--
             property代表Person类的一个属性
                name 为属性的名称
