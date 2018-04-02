@@ -21,6 +21,12 @@ public class JDBCTest {
         Connection conn= DriverManager.getConnection(URL, USER, PASSWORD);
         //3.通过数据库的连接操作数据库，实现增删改查（使用Statement类）
         Statement st=conn.createStatement();
+        //首先将自动提交修改为false
+        conn.setAutoCommit(false);
+        //事物提交
+        conn.commit();
+        //事物回滚（记住每一次的开启事物之后，都要去释放事物）
+        conn.rollback();
         ResultSet rs=st.executeQuery("select * from ZMT_Seller");
         //4.处理数据库的返回结果(使用ResultSet类)
         while(rs.next()){
