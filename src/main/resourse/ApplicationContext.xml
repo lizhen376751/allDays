@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 把person和student纳入spring容器中-->
+    <bean id="User" class="com.dudu.lizhen.reflex.User">
+        <!--
+            property代表Person类的一个属性
+               name 为属性的名称
+               value 属性的值
+               String类型和基本类型(基本类型)是用value来进行赋值的
+         -->
+        <property name="name" value="lizhen"/>
+        <property name="age" value="18"/>
+    </bean>
+    <!-- 把person和student纳入spring容器中-->
+    <bean id="UserTest" class="com.dudu.lizhen.createIOC.UserTest">
+        <!--
+            property代表Person类的一个属性
+               name 为属性的名称
+               value 属性的值
+               String类型和基本类型(基本类型)是用value来进行赋值的
+         -->
+        <property name="name" value="lizhen"/>
+        <property name="age" value="18"/>
+    </bean>
+</beans>
