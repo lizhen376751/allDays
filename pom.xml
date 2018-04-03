@@ -32,8 +32,6 @@
         </dependency>
 
 
-
-
         <!--引入Netty 3.0 框架依赖-->
         <dependency>
             <groupId>io.netty</groupId>
@@ -268,6 +266,17 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.0.0</version>
         </dependency>
     </dependencies>
     <build>
