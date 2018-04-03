@@ -1,5 +1,7 @@
 package com.dudu.lizhen.jdbctest;
 
+import org.apache.naming.factory.BeanFactory;
+
 import java.sql.*;
 
 /**
@@ -8,7 +10,6 @@ import java.sql.*;
  */
 public class JDBCTest {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
         String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; //加载JDBC驱动
         String URL = "jdbc:sqlserver://192.168.1.112:1433; DatabaseName=ZMTPlatform"; //连接服务器和数据库sampl
 

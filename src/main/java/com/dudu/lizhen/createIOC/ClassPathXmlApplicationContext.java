@@ -76,7 +76,6 @@ public class ClassPathXmlApplicationContext {
             //利用反射初始化类
             Class<?> aClass = Class.forName(classPath);
             Object o = aClass.newInstance();
-            Field[] declaredFields = aClass.getDeclaredFields();
             //获取属性值
             List<Element> elements1 = element.elements();
             for (Element elem:elements1){
