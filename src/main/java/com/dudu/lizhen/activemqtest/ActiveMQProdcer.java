@@ -23,8 +23,11 @@ public class ActiveMQProdcer {
         Queue lizhen_queue = session.createQueue("lizhen_queue");
         //创建生产者
         MessageProducer producer = session.createProducer(lizhen_queue);
+        //设置持久化,需要做持久化。
+        producer.setDeliveryMode(DeliveryMode.PERSISTENT);
         //设置是否持久化，我们在这先不持久化
-        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+//        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+
         for (int i = 0; i < 10; i++) {
             sendMessage(session, producer, "我是生产者：" + i);
         }
