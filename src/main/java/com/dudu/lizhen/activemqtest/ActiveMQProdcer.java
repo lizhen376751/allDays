@@ -17,7 +17,9 @@ public class ActiveMQProdcer {
         Connection connection = activeMQConnectionFactory.createConnection();
         //启动连接
         connection.start();
-        //创建回话工厂
+        //创建回话工厂 第一个参数表示：是否事物提交，第二参数表示：自动签收
+        //Boolean.FALSE：关闭事物提交，Boolean.TRUE：开启事物提交
+        // Session.AUTO_ACKNOWLEDGE自动签收，Session.CLIENT_ACKNOWLEDGE:手动签收
         Session session = connection.createSession(Boolean.FALSE, Session.AUTO_ACKNOWLEDGE);
         //创建队列
         Queue lizhen_queue = session.createQueue("lizhen_queue");
