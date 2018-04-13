@@ -25,7 +25,7 @@ public class StartJob {
 
         //任务运行的时间，SimpleSchedle类型触发器有效
         long time = System.currentTimeMillis() + 3 * 1000L; //3秒后启动任务
-        
+
         Date statTime = new Date(time);
 
         //4.创建Trigger
