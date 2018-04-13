@@ -4,6 +4,7 @@ import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -112,7 +113,35 @@ public class ZookeeperTest002 implements Watcher {
         }
 
     }
-
+    /**
+     * <p>获取某个节点下的所有子节点,List getChildren(path<节点路径>, watcher<监视器>)该方法有多个重载</p>
+     * @param path zNode节点路径
+     * @return 子节点路径集合 说明,这里返回的值为节点名
+     * <pre>
+     *     eg.
+     *     /node
+     *     /node/child1
+     *     /node/child2
+     *     getChild( "node" )户的集合中的值为["child1","child2"]
+     * </pre>
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public List<String> getChild( String path ){
+        try{
+            List<String> list=zooKeeper.getChildren( path, false );
+            if(list.isEmpty()){
+                System.out.println( "中没有节点" + path );
+            }
+            return list;
+        }catch (KeeperException e) {
+            System.out.println( "读取子节点数据失败,发生KeeperException! path: " + path + ", errMsg:" + e.getMessage() );
+        } catch (InterruptedException e) {
+            System.out.println( "读取子节点数据失败,发生InterruptedException! path: " + path
+                    + ", errMsg:" + e.getMessage());
+        }
+        return null;
+    }
     //事件通知
     @Override
     public void process(WatchedEvent watchedEvent) {
