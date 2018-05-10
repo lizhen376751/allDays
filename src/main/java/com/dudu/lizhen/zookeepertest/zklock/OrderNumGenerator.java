@@ -1,4 +1,4 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.zklock;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.javabyzookeeper;
 
 import org.apache.zookeeper.*;
 import java.io.IOException;

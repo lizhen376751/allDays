@@ -1,7 +1,6 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.zklock;
 
 import org.I0Itec.zkclient.IZkDataListener;
-import org.I0Itec.zkclient.ZkClient;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -26,9 +25,10 @@ public class ZKLockTest extends ZKLockImplement {
     //等待
     @Override
     Boolean waitLock() {
-        //使用事件监听，如果监测到被删除在唤醒countDownLatch
+
         //如果创建节点失败，判断是否存在该节点
         if (zkClient.exists(PATH)) {
+            //创建事件监听，如果监测到被删除在唤醒countDownLatch
             IZkDataListener iZkDataListener = new IZkDataListener() {
                 @Override
                 public void handleDataChange(String s, Object o) throws Exception {
@@ -46,7 +46,6 @@ public class ZKLockTest extends ZKLockImplement {
             zkClient.subscribeDataChanges(PATH, iZkDataListener);
             //如果存在该节点，那么就在次等待，知道事件通知之后，然后继续往下执行
             countDownLatch = new CountDownLatch(1);
-
             try {
                 countDownLatch.await();
                 //删除节点监听信息

@@ -1,4 +1,4 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.zklock;
 
 /**
  * 主要用于测试分布式锁

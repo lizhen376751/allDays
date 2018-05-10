@@ -1,4 +1,4 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.zklock;
 
 /**
  * 分布式锁

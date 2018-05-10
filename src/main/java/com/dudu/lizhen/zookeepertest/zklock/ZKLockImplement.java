@@ -1,4 +1,4 @@
-package com.dudu.lizhen.zookeepertest;
+package com.dudu.lizhen.zookeepertest.zklock;
 
 import org.I0Itec.zkclient.ZkClient;
 
