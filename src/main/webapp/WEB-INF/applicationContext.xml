@@ -2,12 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
     <bean id="aspectBean" name="aspectBean" class="com.dudu.lizhen.springaop.TestAspect"/>
     <bean id="aService" class="com.dudu.lizhen.springaop.AServiceImpl"></bean>
@@ -15,6 +11,8 @@
     <bean id="userManager" class="com.dudu.lizhen.springaop.UserManagerImpl"/>
     <!--<bean id="aspcejHandler" class="com.tgb.aop.AspceJAdvice"/>-->
     <bean id="xmlHandler" class="com.dudu.lizhen.springaop.XMLAdvice"/>
+
+
     <aop:config>
         <aop:aspect id="TestAspect" ref="aspectBean">
             <!--配置com.spring.service包下所有类或接口的所有方法-->
