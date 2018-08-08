@@ -8,7 +8,7 @@ master2次修改啊
 test分支第三次修改
 test分支第三次修改
 master 修改
-
+修改，修改
 该链接是通过【统一下单API】中提交的参数notify_url设置，如果链接无法访问，商户将无法接收到微信通知。
 
 通知url必须为直接可访问的url，不能携带参数。示例：notify_url：“https://pay.weixin.qq.com/wxpay/pay.action”
